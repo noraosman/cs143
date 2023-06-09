@@ -1,22 +1,16 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class HikeGui {
-    private JButton hikeButton;
     private JPanel rootPanel;
-    private JLabel header;
-    private JTextField location;
-    private JLabel eastOrWest;
+    private JRadioButton eastRadioButton;
+    private JRadioButton westRadioButton;
+    private JRadioButton easyRadioButton;
+    private JRadioButton difficultRadioButton;
+    private JTextField textField1;
+    private JTextField textField2;
 
 
     public HikeGui() {
-        hikeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // only use for actions
-            }
-        });
     }
 
 
