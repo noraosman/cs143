@@ -58,7 +58,7 @@
         </constraints>
         <properties>
           <requestFocusEnabled value="false"/>
-          <text value="eastOrWest"/>
+          <text value="East or West?"/>
         </properties>
       </component>
     </children>

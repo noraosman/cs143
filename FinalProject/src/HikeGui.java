@@ -15,10 +15,10 @@ public class HikeGui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // only use for actions
-
             }
         });
     }
+
 
     public void showGui(){
         JFrame frame = new JFrame("Hiking Suggestions");
@@ -27,13 +27,10 @@ public class HikeGui {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(600,600);
-     
-
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-
 
     }
 }
