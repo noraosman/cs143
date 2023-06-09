@@ -18,7 +18,7 @@ public class HikeMain {
         System.out.println("Would you like hikes in Eastern or Western Washington? ");
         String area = input.nextLine().toLowerCase();
 
-        //Soft validation of whether or not the user entered east or west.
+        //Soft validation of whether the user entered east or west.
         if (area.charAt(0) == 'e') {
             in = new Scanner(new File(EASTERN_WASHINGTON));
             createList(in, hikes);
