@@ -2,14 +2,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//Class holding the pointer to the front of a linked list.
+/**
+ * Constructs a linked list of HikeNode objects. Creates HikeNodes to put into the list.
+ * Adds HikeNodes to the list.
+ */
 public class HikeList {
-    //Front of linked list
     private HikeNode front;
     private final double userLatitude;
     private final double userLongitude;
 
-    //Constructor
+    /**
+     * Constructor that creates a Linked List of Hike Node objects. Records user's
+     * latitude and longitude.
+     * @param hikes List of Arrays of Strings containing information to construct HikeNodes.
+     * @param userLatitude User's latitude.
+     * @param userLongitude User's longitude.
+     */
     public HikeList(List<String[]> hikes, double userLatitude, double userLongitude) {
         this.userLatitude = userLatitude;
         this.userLongitude = userLongitude;
@@ -22,7 +30,10 @@ public class HikeList {
         }
     }
 
-    //Method to add a HikeNode to the linked list.
+    /**
+     * Adds Adds HikeNode objects to the Linked List.
+     * @param hikeInfo String array containing information about a hike.
+     */
     public void add(String[] hikeInfo) {
         HikeNode node = createNode(hikeInfo);
         if (this.front == null) {
@@ -32,7 +43,12 @@ public class HikeList {
         }
     }
 
-    //Helper method to recursively add HikeNodes to the linked list in order of difficulty.
+    /**
+     * Recursive helper method that adds HikeNode objects to the Linked List
+     * in order of their difficulty data field.
+     * @param node Initially the front of the linked list, utilized to traverse the list.
+     * @param addNode Node to be added to the linked list.
+     */
     public void add(HikeNode node, HikeNode addNode) {
         if (addNode.getData().difficulty() >= node.getData().difficulty()) {
             if (node.next == null) {
@@ -51,7 +67,11 @@ public class HikeList {
         }
     }
 
-    //creates a node out of information stored in an array.
+    /**
+     * Creates a HikeNode out of the information in the passed String Array.
+     * @param hikeInfo String Array containing information about a hike.
+     * @return New Hike Node.
+     */
     public HikeNode createNode(String[] hikeInfo) {
         String name = hikeInfo[0];
         double distance = Double.parseDouble(hikeInfo[1]);
@@ -63,7 +83,10 @@ public class HikeList {
         return new HikeNode(name, distance, elevationGain, latitude, longitude, distanceFromUser);
     }
 
-    //Provides the length of the linked list.
+    /**
+     * Returns the length of the Linked List.
+     * @return Length of the Linked List.
+     */
     private int getLength() {
         HikeNode current = front;
         int count = 0;
@@ -74,7 +97,10 @@ public class HikeList {
         return count;
     }
 
-    //Provides the first half of the linked list (the easiest hikes)
+    /**
+     * Returns a list containing the first half of the Linked List.
+     * @return List containing the first half of the Linked List.
+     */
     public List<HikeNode> getEasy() {
         List<HikeNode> list = new ArrayList<>();
         int count = getLength() / 2;
@@ -89,7 +115,10 @@ public class HikeList {
         return list.subList(0, 5);
     }
 
-    //Provides the second half of the linked list (the hardest hikes)
+    /**
+     * Returns a list containing the latter half of the Linked List.
+     * @return List of the latter half of the Linked List.
+     */
     public List<HikeNode> getDifficult() {
         List<HikeNode> list = new ArrayList<>();
         int head = getLength() / 2;
@@ -108,6 +137,14 @@ public class HikeList {
         return list.subList(0, 5);
     }
 
+    /**
+     * Determines the distance between two sets of latitude and longitude.
+     * @param latitude1 Latitude of first pair.
+     * @param longitude1 Longitude of first pair.
+     * @param latitude2 Latitude of second pair.
+     * @param longitude2 Longitude of second pair.
+     * @return Distance in miles between the two pairs of passed sets of latitude and longitude.
+     */
     public double distance(double latitude1, double longitude1, double latitude2, double longitude2) {
 
         double dLat = Math.toRadians(latitude2 - latitude1);

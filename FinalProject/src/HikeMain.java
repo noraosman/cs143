@@ -4,11 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Nora Osmanova, Kyle Williams
+ * @date 06/09/2023
+ * @class CS143
+ *
+ * Guides user through supplying information to create a suggested list of hikes for them.
+ * Creates a linked list of hikes from a file. Grabs either the first half or latter half
+ * of the linked list and puts it into a TreeMap organized by distance from user.
+ * Takes and shuffles the closest 5 hikes and presents them to the user.
+ */
 public class HikeMain {
     public static final String EASTERN_WASHINGTON = "EasternHikes.csv";
     public static final String WESTERN_WASHINGTON = "WesternHikes.csv";
 
-    //Way overworked main that is in desperate need of consolidation and encapsulation.
+    /**
+     * Main that guides the user through giving information to determine a hike for them.
+     * @param args ""
+     * @throws FileNotFoundException Thrown if given hike file is invalid.
+     */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         Scanner in;
@@ -107,7 +121,11 @@ public class HikeMain {
         System.out.println("Thanks, and enjoy your hike!");
     }
 
-    //Creates a list of arrays that contain the values of each hike.
+    /**
+     * Creates a list of Arrays of Strings containing information from the hike file.
+     * @param in Scanner of the hike file.
+     * @param list List containing Arrays of Strings containing information from the hike file.
+     */
     public static void createList(Scanner in, List<String[]> list) {
         while (in.hasNextLine()) {
             String[] hike = in.nextLine().split(",");
@@ -115,7 +133,11 @@ public class HikeMain {
         }
     }
 
-    //Determines if provided string is a valid, workable double.
+    /**
+     * Determines if the passed string is a valid double.
+     * @param string String to be checked for validity.
+     * @return Returns a parsed double from the passed string.
+     */
     public static double parseDouble(String string) {
         try {
             return Double.parseDouble(string);
