@@ -3,11 +3,10 @@ public class HikeMain2 {
     public static final String WESTERN_WASHINGTON = "WesternHikes.csv";
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         HikeGui GUI = new HikeGui();
         GUI.showGui();
-
-
+        
     }
 
 }
